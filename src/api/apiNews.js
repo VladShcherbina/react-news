@@ -19,6 +19,20 @@ export const getNews = async ({page_number = 1, page_size = 10, category, keywor
         console.log(error)
     }
 }
+
+export const getLatestNews = async () => {
+    try {
+        const respons = await axios.get(`https://api.currentsapi.services/v1/latest-news`, {
+            params: {
+                apiKey: 'B-yvMWSMQjhKHCAFGMH73CXoQO2R7qGdOsoopZ85yTFJaxUs',  
+            }
+        })
+        return respons.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getCategories = async () => {
     try {
         const respons = await axios.get(`https://api.currentsapi.services/v1/available/categories`, {
